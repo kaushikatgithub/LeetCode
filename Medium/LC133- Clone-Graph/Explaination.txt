@@ -1,0 +1,81 @@
+IDEA: The approach revolves around creating a HashMap that maps old nodes to their corresponding new nodes. This mapping
+      is established recursively using DFS.
+
+=> Initially, we generate a clone of the current node. To populate its neighbors, we require clones of these neighboring 
+   nodes. If a clone for a neighbor already exists in the HashMap, we can directly link it to the current node's neighbor 
+   list. However, if the clone does not exist yet, we recursively invoke the cloning function to create a clone for that
+   particular neighbor node and subsequently add this clone to the current node's neighbor list.
+
+=> In the code, our first step is to verify if the node has already been cloned. If so, we simply return its corresponding
+   clone from the HashMap.
+
+=> If the node hasn't been cloned yet, our next steps involve creating its clone, adding this clone to our HashMap, and 
+   then recursively invoking the `clone()` function to handle the neighbors of the current node.
+
+=> Upon completion, we return the clone of the current node since it needs to be incorporated into the neighbor list of 
+   its corresponding cloned neighbor.
+
+TESTCASE:
+
+=> Graph: Initially calling the function with source node and empty HashMap
+	(1) ----- (2)	
+	 |	   |
+	 |         |
+	(3) ----- (4)
+=> Source = 1, HashMap
+   ___________________
+   |     HashMap     |
+   |_________________|		(1) ----- (2)	 (1)'
+   |   Old  |   New  |		 |	   |
+   |_________________|		 |	   |
+   |   (1)  |   (1)' |		(4) ----- (3)
+   |_________________|
+
+=> Source = 2, HashMap
+   ___________________
+   |     HashMap     |
+   |_________________|		(1) ----- (2)	 (1)'----- (2)'	 
+   |   Old  |   New  |		 |	   |
+   |_________________|		 |	   |
+   |   (1)  |   (1)' |		(4) ----- (3)
+   |   (2)  |   (2)' |
+   |_________________|
+
+=> Source = 3, HashMap
+   ___________________
+   |     HashMap     |
+   |_________________|		(1) ----- (2)	 (1)'----- (2)'
+   |   Old  |   New  |		 |	   |		    |
+   |_________________|		 |	   |		    |
+   |   (1)  |   (1)' |		(4) ----- (3)		   (3)'
+   |   (2)  |   (2)' |
+   |   (3)  |   (3)' |
+   |_________________|
+
+=> Source = 4, HashMap
+   ___________________
+   |     HashMap     |
+   |_________________|		(1) ----- (2)	 (1)' ----- (2)'	 
+   |   Old  |   New  |		 |	   |	  	     |
+   |_________________|		 |	   |     	     |
+   |   (1)  |   (1)' |		(4) ----- (3)    (4)' ----- (3)'
+   |   (2)  |   (2)' |
+   |   (3)  |   (3)' |
+   |   (4)  |   (4)' |
+   |_________________|
+
+=> BackTracked to source 1, HashMap
+   ___________________
+   |     HashMap     |
+   |_________________|		(1) ----- (2)	 (1)' ----- (2)'	 
+   |   Old  |   New  |		 |	   |	  |	     |
+   |_________________|		 |	   |      |	     |
+   |   (1)  |   (1)' |		(4) ----- (3)    (4)' ----- (3)'
+   |   (2)  |   (2)' |
+   |   (3)  |   (3)' |
+   |   (4)  |   (4)' |
+   |_________________|
+
+
+TIME COMPLEXITY   : O(E+V)
+SPACE COMPLEXITY  : O(V)
