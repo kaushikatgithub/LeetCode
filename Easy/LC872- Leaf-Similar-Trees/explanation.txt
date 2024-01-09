@@ -1,0 +1,9 @@
+IDEA:
+=> Given two trees, our objective is to determine whether their leaf nodes appear in the same sequence with identical 
+   values.
+=> A possible approach involves traversing both trees and constructing an array to store the leaf nodes of each tree.
+=> Upon completion, we compare the sizes of these leaf arrays and verify if they contain identical values in the same 
+   sequence. If they differ in size or content, we return false.
+
+TIME COMPLEXITY: O(2*N)
+SPACE COMPLEXITY: O(2*N)
