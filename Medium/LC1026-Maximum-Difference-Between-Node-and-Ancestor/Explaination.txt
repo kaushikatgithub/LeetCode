@@ -1,0 +1,9 @@
+IDEA:
+=> Our objective is to determine the maximum difference between a node and its ancestor in the tree.
+=> A straightforward approach involves tracking the maximum and minimum node values along each path. 
+   Upon reaching a leaf node, we compute and return its difference. For intermediate nodes, we determine 
+   the maximum difference between its left and right subtrees.
+=> Using this method, the problem can be solved with a time and space complexity of O(N).
+
+TIME COMPLEXITY   : O(N)
+SPACE COMPLEXITY  : O(N)
