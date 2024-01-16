@@ -1,0 +1,9 @@
+IDEA:
+=> The task is to find the diameter of a binary tree, which represents the longest path between any two nodes.
+=> We can approach this problem in terms of heights. The longest path through a given node must traverse the
+   longest height of its left and right subtrees.
+=> Calculating the longest path through a given node involves summing up the heights of its left and right subtrees.
+   The final answer is the maximum among these longest paths.
+
+TIME COMPLEXITY: O(2*N) => Due to the height function and DFS
+SPACE COMPLEXITY: O(2*N) => Due to the height function and DFS
