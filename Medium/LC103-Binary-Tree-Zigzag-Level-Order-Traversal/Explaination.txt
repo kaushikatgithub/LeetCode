@@ -1,0 +1,14 @@
+IDEA:
+=> For zigzag level order traversal, the simplest approach is to first find the level order traversal and then 
+   reverse the order of the even levels, considering 1-based leveling.
+=> Alternatively, we can use the deque data structure instead of a queue to perform zigzag level order traversal.
+=> To achieve this, we keep track of the direction of movement in a boolean variable 'ltor' (short for left to 
+   right path). Its initial value will be true as the initial direction is left to right.
+=> If the direction of traversal for the current level is left to right, we pop the node from the front side of 
+   the deque. While inserting children, we add the left child first and then the right child at the back side.
+=> For the right to left direction of traversal, we do the opposite: pop the node from the back side of the deque,
+   and while inserting children, add the right child first and then the left child from the front side.
+=> This is how, using a deque, we achieve zigzag level order traversal.
+
+TIME COMPLEXITY: O(N) 
+SPACE COMPLEXITY: O(N) 
