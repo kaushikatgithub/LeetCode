@@ -1,0 +1,13 @@
+IDEA:
+=> In level order traversal, we traverse the tree level by level, pushing elements into an array.
+=> This traversal is typically implemented using a queue data structure. We start with the root (first level) 
+   and push it into the queue.
+=> Subsequently, we push its children into the queue (second level). While popping nodes from the queue, we 
+   concurrently add their children to the queue. In other words, while traversing level 'l', we simultaneously 
+   add the nodes of level 'l+1' to the queue.
+=> After completing the level order traversal we will reverse the ans vector to get bottem-up level order traversal.
+=> This process allows us to perform level order traversal through the use of a queue, and it is also referred 
+   to as BFS (Breadth-First Search) traversal for trees.
+
+TIME COMPLEXITY: O(N) 
+SPACE COMPLEXITY: O(N) 
