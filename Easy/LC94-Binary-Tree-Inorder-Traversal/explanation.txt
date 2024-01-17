@@ -1,0 +1,13 @@
+IDEA:
+=> In a Binary Tree, both the left and right subtrees are also binary trees, making the simple recursive approach 
+   effective. It runs in O(N) time and space.
+=> Alternatively, we can use our own stack to perform iterative inorder traversal.
+=> In the recursive approach, we navigate to the leftmost child until it becomes NULL, add then add current node's value
+   to the answer vector, and then move to the right subtree.
+=> The same idea applies to the iterative approach. We traverse to the left of every node until the node's left is NULL.
+   Then for the current node, we add its value to the answer and move to the right. It's worth noting that a single 
+   variable is used for the current node to keep track of the right side of the current node.
+=> Both approaches have the same time and space complexity.
+
+TIME COMPLEXITY: O(N) 
+SPACE COMPLEXITY: O(N) 
